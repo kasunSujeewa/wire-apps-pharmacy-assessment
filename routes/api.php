@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthenticationController;
+use App\Http\Controllers\API\MedicationInventoryManagementController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/register',[AuthenticationController::class,'register']);
 Route::post('/login',[AuthenticationController::class,'login']);
+
+Route::middleware('auth:api')->group( function () {
+    Route::apiResource('medication',MedicationInventoryManagementController::class);
+});

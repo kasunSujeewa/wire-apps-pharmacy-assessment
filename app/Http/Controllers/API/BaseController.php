@@ -10,7 +10,7 @@ class BaseController extends Controller
 {
     public function sendResponse($result)
     {
-    	if($result['error'] == true){
+    	if(isset($result['error'])){
             return $this->sendErrorResponse($result['message'],$result['data'],isset($result['status_code']) ? $result['status_code'] : HttpResponse::UNAUTH_CODE);
         }
         else{
