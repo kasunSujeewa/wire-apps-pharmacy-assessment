@@ -24,7 +24,6 @@ class AuthService
 
         $success['token'] =  $this->make_token($user);
         $success['name'] =  $user->name;
-        $response['error'] =  false;
         $response['data'] =  $success;
         $response['status_code'] =  201;
 
