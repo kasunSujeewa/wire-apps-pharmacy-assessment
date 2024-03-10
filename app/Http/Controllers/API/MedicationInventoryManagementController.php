@@ -52,4 +52,10 @@ class MedicationInventoryManagementController extends BaseController
         $response = $this->medication->delete($id);
         return $this->sendResponse($response); 
     }
+
+    public function permanentlyDelete(string $id)
+    {
+        $response = $this->medication->permanentlyDelete($id);
+        return $this->sendResponse($response); 
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Constants\Constants;
 use App\Constants\HttpResponse;
 use App\Models\User;
+use Illuminate\Mail\Mailables\Content;
 
 class AuthService
 {
@@ -26,6 +27,7 @@ class AuthService
         $success['name'] =  $user->name;
         $response['data'] =  $success;
         $response['status_code'] =  201;
+        $response['message'] = HttpResponse::REG_MESSAGE;
 
         return $response;
     }
