@@ -2,12 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Constants\Constants;
-
-
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class CustomerUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +21,12 @@ class RegisterRequest extends FormRequest
      */
     public function rules(): array
     {
+        $customer_id = $this->route('customer');
         return [
-            'name' => 'required',
-            'username' => 'required|unique:users,username',
-            'password' => 'required',
-            'c_password' => 'required|same:password',
-            'role' => 'required|in:'.Constants::CASHIER.','.Constants::OWNER.','.Constants::MANAGER
+            'name' => 'required|string',
+            'mobile_no' => 'required|unique:customers,mobile_no,' . (int)$customer_id . ',id',
+            'address' => 'string',
+            'is_active' => 'boolean'
         ];
     }
 }

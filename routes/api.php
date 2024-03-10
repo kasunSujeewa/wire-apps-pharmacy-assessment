@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthenticationController;
+use App\Http\Controllers\API\CustomerRecordManagementController;
 use App\Http\Controllers\API\MedicationInventoryManagementController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,7 @@ Route::post('/login',[AuthenticationController::class,'login']);
 
 Route::middleware('auth:api')->group( function () {
     Route::apiResource('medication',MedicationInventoryManagementController::class);
+    Route::delete('medication/permanentDelete/{id}',[MedicationInventoryManagementController::class,'permanentlyDelete']);
+    Route::apiResource('customer',CustomerRecordManagementController::class);
+    Route::delete('customer/permanentDelete/{id}',[CustomerRecordManagementController::class,'permanentlyDelete']);
 });
