@@ -61,7 +61,7 @@ trait CrudOperationsTrait
         $model->delete();
         $sucesss['data'] = [];
         $sucesss['message'] = HttpResponse::DATA_REMOVED_MESSAGE;
-        $sucesss['status_code'] = HttpResponse::NO_CONTENT_CODE;
+        //$sucesss['status_code'] = HttpResponse::NO_CONTENT_CODE;
 
         return $sucesss;
         }
@@ -81,7 +81,7 @@ trait CrudOperationsTrait
         $model->forcedelete();
         $sucesss['data'] = [];
         $sucesss['message'] = HttpResponse::DATA_REMOVED_MESSAGE;
-        $sucesss['status_code'] = HttpResponse::NO_CONTENT_CODE;
+        //$sucesss['status_code'] = HttpResponse::NO_CONTENT_CODE;
 
         return $sucesss;
         }
